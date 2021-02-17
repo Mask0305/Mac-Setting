@@ -11,9 +11,18 @@ call plug#begin('~/.vim/plugged')
   Plug 'google/vim-colorscheme-primary'
   Plug 'joshdick/onedark.vim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-call plug#end() 
-syntax on
-colorscheme onedark
+  
+  " FZF
+  Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/fzf'
+  Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
+  Plug 'preservim/nerdcommenter'
+  call plug#end() 
+  syntax on
+  set number
+  colorscheme onedark
+  let mapleader =','
+  let maplocalleader = '_'
 
     let g:go_highlight_functions = 1
     let g:go_highlight_methods = 1
@@ -111,3 +120,22 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction 
+
+" Using CocFzFList
+  nnoremap <silent> <space><space> :<C-u>CocFzfList<CR>
+  " 顯示所有的問題診斷
+  nnoremap <silent> <space>a       :<C-u>CocFzfList diagnostics <CR>
+  " 顯示所有的問題診斷 在這個檔案
+  nnoremap <silent> <space>b       :<C-u>CocFzfList diagnostics --current-buf<CR>
+  " 顯示所有指令
+  nnoremap <silent> <space>c       :<C-u>CocFzfList commands<CR>
+  " 顯示所有插件
+  nnoremap <silent> <space>e       :<C-u>CocFzfList extensions<CR>
+  "nnoremap <silent> <space>l       :<C-u>CocFzfList location<CR>
+  " 取得該檔案的 outline
+  nnoremap <silent> <space>o       :<C-u>CocFzfList outline<CR>
+  nnoremap <silent> <space>s       :<C-u>CocFzfList symbols<CR>
+  nnoremap <silent> <space>g       :<C-u>CocFzfList --normal gstatus<CR>
+  " Resume latest coc listå
+  nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR>
+
