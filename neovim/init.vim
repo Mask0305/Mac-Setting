@@ -18,8 +18,17 @@ call plug#begin('~/.vim/plugged')
   Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
   Plug 'preservim/nerdcommenter'
   call plug#end() 
+  " 開啟語法高亮
   syntax on
+  " 開啟行號
   set number
+  " 高亮所在行
+  set cursorline
+  " 底部狀態列
+  set laststatus=2
+  set colorcolumn=93
+
+  " 使用色系
   colorscheme onedark
   let mapleader =','
   let maplocalleader = '_'
@@ -47,6 +56,7 @@ call plug#begin('~/.vim/plugged')
     let g:go_gopls_enabled = 0
     let g:go_gopls_options = ['-remote=auto']
     let g:go_fmt_autosave = 0
+
 let g:coc_explorer_global_presets = {
 \   '.vim': {
 \     'root-uri': '~/.vim',
@@ -101,6 +111,28 @@ let g:coc_explorer_global_presets = {
     map <C-H> <C-W>h<C-W>_
   nmap <space>ef :CocCommand explorer --preset floating<CR>
 
+  " fzf preview
+  nmap <Leader>f [fzf-p]
+  xmap <Leader>f [fzf-p]
+
+  nnoremap <silent> [fzf-p]p     :<C-u>CocCommand fzf-preview.FromResources project_mru git<CR>
+  nnoremap <silent> [fzf-p]gs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
+  nnoremap <silent> [fzf-p]ga    :<C-u>CocCommand fzf-preview.GitActions<CR>
+  nnoremap <silent> [fzf-p]b     :<C-u>CocCommand fzf-preview.Buffers<CR>
+  nnoremap <silent> [fzf-p]B     :<C-u>CocCommand fzf-preview.AllBuffers<CR>
+  nnoremap <silent> [fzf-p]o     :<C-u>CocCommand fzf-preview.FromResources buffer project_mru<CR>
+  nnoremap <silent> [fzf-p]<C-o> :<C-u>CocCommand fzf-preview.Jumps<CR>
+  nnoremap <silent> [fzf-p]g;    :<C-u>CocCommand fzf-preview.Changes<CR>
+  nnoremap <silent> [fzf-p]/     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
+  nnoremap <silent> [fzf-p]*     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
+  nnoremap          [fzf-p]gr    :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
+  xnoremap          [fzf-p]gr    "sy:CocCommand   fzf-preview.ProjectGrep<Space>-F<Space>"<C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>"
+  nnoremap <silent> [fzf-p]t     :<C-u>CocCommand fzf-preview.BufferTags<CR>
+  nnoremap <silent> [fzf-p]q     :<C-u>CocCommand fzf-preview.QuickFix<CR>
+  nnoremap <silent> [fzf-p]l     :<C-u>CocCommand fzf-preview.LocationList<CR>
+  " 查詢實做
+    nnoremap <silent> <space>i    :<C-u>CocCommand fzf-preview.CocImplementations<CR>
+  
   " GoTo code navigation.
   nmap <silent> gd <Plug>(coc-definition)
   nmap <silent> gy <Plug>(coc-type-definition)
