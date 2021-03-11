@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'google/vim-colorscheme-primary'
   Plug 'joshdick/onedark.vim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'uarun/vim-protobuf'
   
   " FZF
   Plug 'junegunn/fzf.vim'
@@ -33,12 +34,16 @@ call plug#begin('~/.vim/plugged')
   let mapleader =','
   let maplocalleader = '_'
 
+  " 括弧彩虹
+  let g:rainbow_active = 1
+
+  " Go的設定
+    let g:go_fmt_command = "goimports"
     let g:go_highlight_functions = 1
     let g:go_highlight_methods = 1
     let g:go_highlight_structs = 1
     let g:go_highlight_operators = 1
     let g:go_highlight_build_constraints = 1
-    let g:go_fmt_command = 'goimports'
     let g:go_test_timeout = '30s'
     let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
     let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
@@ -57,6 +62,8 @@ call plug#begin('~/.vim/plugged')
     let g:go_gopls_options = ['-remote=auto']
     let g:go_fmt_autosave = 0
 
+" 儲存同時引入包
+  nmap <space>w :w <bar> :GoImports <CR>
 let g:coc_explorer_global_presets = {
 \   '.vim': {
 \     'root-uri': '~/.vim',
@@ -96,6 +103,7 @@ let g:coc_explorer_global_presets = {
 \     'sources': [{'name': 'buffer', 'expand': v:true}]
 \   },
 \ }
+
 
 
   nmap <space>ed :CocCommand explorer --preset .vim<CR>
