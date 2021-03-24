@@ -13,3 +13,7 @@
 
 # Mac-Setting
 開發環境
+
+## 登錄提示
+sudo vim etc/motd
+直接貼上
