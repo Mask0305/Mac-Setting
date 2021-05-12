@@ -28,6 +28,9 @@ call plug#begin('~/.vim/plugged')
   " 底部狀態列
   set laststatus=2
   set colorcolumn=93
+  
+  "允許使用複製貼上
+  set clipboard=unnamed         
 
   " 使用色系
   colorscheme onedark
