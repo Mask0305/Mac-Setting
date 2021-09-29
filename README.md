@@ -17,3 +17,6 @@
 ## 登錄提示
 sudo vim etc/motd
 直接貼上
+
+## Git 高亮
+https://www.chrisatmachine.com/Neovim/12-git-integration/
