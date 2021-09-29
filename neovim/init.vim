@@ -18,6 +18,22 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf'
   Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
   Plug 'preservim/nerdcommenter'
+
+  " Git
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-rhubarb'
+  Plug 'junegunn/gv.vim'
+  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+
+
+
+" Git 配置檔
+ touch ~/signify.vim
+
+
+ set updatetime = 100
+  
+
   call plug#end() 
   " 開啟語法高亮
   syntax on
