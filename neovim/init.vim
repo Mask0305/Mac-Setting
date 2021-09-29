@@ -173,7 +173,7 @@ endfunction
   " 顯示所有指令
   nnoremap <silent> <space>c       :<C-u>CocFzfList commands<CR>
   " 顯示所有插件
-  nnoremap <silent> <space>e       :<C-u>CocFzfList extensions<CR>
+  "nnoremap <silent> <space>e       :<C-u>CocFzfList extensions<CR>
   "nnoremap <silent> <space>l       :<C-u>CocFzfList location<CR>
   " 取得該檔案的 outline
   nnoremap <silent> <space>o       :<C-u>CocFzfList outline<CR>
