@@ -25,13 +25,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/gv.vim'
   Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 
-
-
-" Git 配置檔
- touch ~/signify.vim
-
-
- set updatetime = 100
+ set updatetime=100
   
 
   call plug#end() 
