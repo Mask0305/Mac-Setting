@@ -19,14 +19,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
   Plug 'preservim/nerdcommenter'
 
-  " Git
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-rhubarb'
+  Plug 'mhinz/vim-signify'
   Plug 'junegunn/gv.vim'
-  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
-
- set updatetime=100
-  
 
   call plug#end() 
   " 開啟語法高亮
@@ -35,12 +31,11 @@ call plug#begin('~/.vim/plugged')
   set number
   " 高亮所在行
   set cursorline
+  " 允許複製
+  set clipboard=unnamed
   " 底部狀態列
   set laststatus=2
   set colorcolumn=93
-  
-  "允許使用複製貼上
-  set clipboard=unnamed         
 
   " 使用色系
   colorscheme onedark
@@ -183,7 +178,7 @@ endfunction
   " 顯示所有指令
   nnoremap <silent> <space>c       :<C-u>CocFzfList commands<CR>
   " 顯示所有插件
-  "nnoremap <silent> <space>e       :<C-u>CocFzfList extensions<CR>
+  nnoremap <silent> <space>e       :<C-u>CocFzfList extensions<CR>
   "nnoremap <silent> <space>l       :<C-u>CocFzfList location<CR>
   " 取得該檔案的 outline
   nnoremap <silent> <space>o       :<C-u>CocFzfList outline<CR>
