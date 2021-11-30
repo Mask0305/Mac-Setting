@@ -19,6 +19,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
   Plug 'preservim/nerdcommenter'
 
+  " Git
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-rhubarb'
   Plug 'mhinz/vim-signify'
@@ -72,6 +73,7 @@ call plug#begin('~/.vim/plugged')
 
 " 儲存同時引入包
   nmap <space>w :w <bar> :GoImports <CR>
+  nmap <space>q :q <CR>
 let g:coc_explorer_global_presets = {
 \   '.vim': {
 \     'root-uri': '~/.vim',
